@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабинет заказчика</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Кабинет заказчика</h1>
+    <!-- Добавляем кнопку для перехода на страницу кабинета исполнителя -->
+    <form action="{% url 'performer_profile' %}" method="get">
+        <button type="submit">Перейти в кабинет исполнителя</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact Info</th>
+                <th>Experience</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profile %}
+            <tr>
+                <td>{{ profile.name }}</td>
+                <td>{{ profile.contact_info }}</td>
+                <td>{{ profile.experience }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
